@@ -1,0 +1,18 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "REPLACE_WITH_APPLE_TEAM_ID.com.rfmot.promocodes"
+        ],
+        "components": [
+          {
+            "/": "/import*",
+            "comment": "Reserved for future use — would let codes.evdiag.net/import?payload=... open the app directly"
+          }
+        ]
+      }
+    ]
+  }
+}

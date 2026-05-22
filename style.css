@@ -1,0 +1,291 @@
+/* codes.evdiag.net — minimal styling, matches app aesthetic */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  --paper:        #faf7f2;
+  --paper-2:      #efe9dd;
+  --ink:          #1a1814;
+  --ink-soft:     #4a443b;
+  --muted:        #8a8378;
+  --rule:         #e0d7c5;
+  --rule-strong:  #c8bca5;
+  --accent:       #7A2E2E;    /* maroon — same as app */
+  --accent-soft:  #c4978e;
+  --blue:         #1F4D6B;    /* promo accent */
+  --link:         #5a3a3a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* ─── Header ─────────────────────────────────────────────── */
+
+header {
+  padding: 32px 0 16px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 32px;
+}
+
+.brand {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.brand:hover { color: var(--accent); }
+
+.brand .dot { color: var(--accent); }
+
+.tagline {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+nav {
+  margin-top: 16px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover { color: var(--accent); }
+
+nav a.active { color: var(--accent); font-weight: 600; }
+
+/* ─── Main content ────────────────────────────────────────── */
+
+main {
+  flex: 1;
+  padding: 8px 0 80px;
+}
+
+h1 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+h2 {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 26px;
+  margin: 32px 0 12px;
+  color: var(--ink);
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0 8px;
+  color: var(--ink);
+}
+
+p {
+  margin-bottom: 14px;
+  color: var(--ink-soft);
+}
+
+p.lead {
+  font-size: 18px;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+ul, ol {
+  padding-left: 24px;
+  margin-bottom: 16px;
+  color: var(--ink-soft);
+}
+
+li { margin-bottom: 6px; }
+
+a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--accent); }
+
+strong { color: var(--ink); font-weight: 600; }
+
+code {
+  background: var(--paper-2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', Menlo, Consolas, monospace;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 32px 0;
+}
+
+/* ─── Landing page hero ───────────────────────────────────── */
+
+.hero {
+  padding: 24px 0 32px;
+}
+
+.hero-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 32px 0;
+}
+
+@media (min-width: 600px) {
+  .hero-features {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.feature {
+  background: var(--paper-2);
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--rule);
+}
+
+.feature-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.feature-body {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.store-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: opacity 0.15s;
+}
+
+.store-btn:hover {
+  color: var(--paper);
+  opacity: 0.85;
+}
+
+.store-btn.disabled {
+  background: var(--rule-strong);
+  color: var(--muted);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ─── Legal page meta ─────────────────────────────────────── */
+
+.legal-meta {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 8px 0 24px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 24px;
+}
+
+.legal-meta strong { color: var(--ink-soft); }
+
+/* ─── Footer ──────────────────────────────────────────────── */
+
+footer {
+  background: var(--paper-2);
+  border-top: 1px solid var(--rule);
+  padding: 32px 0;
+  margin-top: auto;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+footer nav {
+  margin: 0;
+  gap: 18px;
+}
+
+footer nav a {
+  color: var(--muted);
+}
+
+footer nav a:hover {
+  color: var(--accent);
+}
+
+/* ─── Mobile tweaks ───────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .container { padding: 0 20px; }
+  h1 { font-size: 34px; }
+  h2 { font-size: 22px; }
+  header { padding: 24px 0 12px; margin-bottom: 24px; }
+  main { padding: 0 0 48px; }
+  .brand { font-size: 28px; }
+  footer .container { flex-direction: column; text-align: center; }
+}

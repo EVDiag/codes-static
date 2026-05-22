@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — codes.</title>
+  <meta name="description" content="Privacy policy for codes. — the promo code and voucher manager.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/" class="brand">codes<span class="dot">.</span></a>
+    <div class="tagline">Promo code &amp; voucher manager</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/privacy" class="active">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/support">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <h1>Privacy Policy</h1>
+
+    <div class="legal-meta">
+      <strong>Effective date:</strong> 22 May 2026 ·
+      <strong>App:</strong> codes. — Vouchers &amp; Promo Manager ·
+      <strong>Publisher:</strong> EVDiag
+    </div>
+
+    <p class="lead">
+      Short version: codes. stores everything locally on your device. We do not track you,
+      collect analytics, or run any servers that receive your data. The only external service
+      is RevenueCat for processing one-time in-app purchases.
+    </p>
+
+    <h2>1. Who we are</h2>
+    <p>
+      codes. is an application published by EVDiag. For privacy questions, contact us at
+      <a href="mailto:service@evdiag.net">service@evdiag.net</a>.
+    </p>
+
+    <h2>2. What data the app collects</h2>
+    <p>
+      <strong>On-device data:</strong> The app stores your promo codes, voucher templates, customer
+      contact entries, team configuration, and category settings locally on your device. This data
+      is held in your device's local storage and never transmitted to any server controlled by us.
+    </p>
+    <p>
+      <strong>No analytics or telemetry:</strong> We do not embed any analytics SDK, crash
+      reporting service, or telemetry collector in the application. We do not know how often
+      you open the app, what features you use, or what data you create.
+    </p>
+    <p>
+      <strong>No account:</strong> The app does not require you to create an account or log in.
+      We do not maintain any user profile or identifier under our control.
+    </p>
+
+    <h2>3. Permissions the app requests</h2>
+    <p>The app may request these device permissions, all used exclusively for the stated purpose:</p>
+    <ul>
+      <li><strong>Camera:</strong> to scan QR codes for voucher redemption and team setup. Scans are processed entirely on your device.</li>
+      <li><strong>Notifications:</strong> to schedule local reminders (e.g. daily team status reports). Notifications originate from your device, not from any remote server.</li>
+      <li><strong>Photo library / storage:</strong> to save voucher images and PDF exports you choose to create. We do not read existing files except those you specifically open with codes..</li>
+      <li><strong>Internet:</strong> used only for in-app purchase processing (see Section 4) and for opening external links you explicitly tap (such as this privacy policy).</li>
+      <li><strong>Bluetooth (Android only):</strong> reserved for future thermal-printer support. Currently unused. Declared with the <code>neverForLocation</code> flag — never used to determine location.</li>
+    </ul>
+
+    <h2>4. Third-party services</h2>
+    <p>
+      <strong>RevenueCat</strong> (<a href="https://www.revenuecat.com/privacy/">privacy.revenuecat.com</a>)
+      processes in-app purchases. When you make a purchase, RevenueCat receives:
+    </p>
+    <ul>
+      <li>A randomly-generated anonymous identifier for your device</li>
+      <li>The product purchased (in our case: <code>pro_team_unlock</code>)</li>
+      <li>The receipt from Apple App Store or Google Play, used to verify the purchase is genuine</li>
+      <li>Standard transaction metadata (country, price, currency, purchase date)</li>
+    </ul>
+    <p>
+      RevenueCat does not receive any of your code, voucher, customer, or team data. Its
+      role is limited to verifying purchase receipts with Apple/Google and informing the app
+      whether you have an active Pro entitlement.
+    </p>
+    <p>
+      <strong>Apple App Store / Google Play:</strong> when you install or update the app, or
+      make an in-app purchase, your interaction with these stores is governed by Apple's and
+      Google's respective privacy policies. We do not control what data they collect.
+    </p>
+
+    <h2>5. Team transfers (peer-to-peer)</h2>
+    <p>
+      The Pro tier supports a team mode where you can share codes with another device by
+      exchanging encrypted <code>.pcm</code> files (codes. package format). These transfers
+      happen device-to-device through whatever channel you choose (AirDrop, WhatsApp, email,
+      file sharing apps, etc.). The payload is encrypted with AES-GCM using a shared team key
+      that you create. No server controlled by us is involved at any point in this transfer.
+    </p>
+    <p>
+      Important: if you use a third-party channel like WhatsApp or email to transfer a
+      <code>.pcm</code> file, that channel's privacy policy applies to the file in transit.
+      Once received and opened in codes., the payload is decrypted on-device and processed
+      locally.
+    </p>
+
+    <h2>6. Data retention</h2>
+    <p>
+      Your local data persists as long as codes. is installed on your device. Uninstalling
+      the app deletes all locally-stored data, with the standard caveats of mobile operating
+      systems (Android and iOS occasionally retain app data backups in iCloud or Google Drive
+      backups if you have enabled them — see Section 9).
+    </p>
+    <p>
+      Purchase records at RevenueCat are retained per RevenueCat's policy. You may request
+      deletion of your RevenueCat anonymous identifier by contacting us at
+      <a href="mailto:service@evdiag.net">service@evdiag.net</a>.
+    </p>
+
+    <h2>7. Children's privacy</h2>
+    <p>
+      codes. is not directed at children under 13. We do not knowingly collect data from
+      children. If you believe a child has interacted with the app and you wish to report
+      a concern, contact <a href="mailto:service@evdiag.net">service@evdiag.net</a>.
+    </p>
+
+    <h2>8. Your rights (GDPR, CCPA, and similar laws)</h2>
+    <p>
+      Because we do not collect or store any personal data about you on our servers, most
+      rights under GDPR, CCPA, and similar privacy regulations are satisfied by the fact
+      that there is no data to access, port, or delete on our side.
+    </p>
+    <p>
+      For data held by RevenueCat (an anonymous device identifier and your purchase history
+      with that identifier), you can:
+    </p>
+    <ul>
+      <li>Request a copy of the data RevenueCat holds about you</li>
+      <li>Request deletion of your RevenueCat record</li>
+      <li>Withdraw consent for processing by ceasing to use the app</li>
+    </ul>
+    <p>
+      Contact <a href="mailto:service@evdiag.net">service@evdiag.net</a> to exercise these
+      rights and we will coordinate with RevenueCat on your behalf.
+    </p>
+
+    <h2>9. Device backups</h2>
+    <p>
+      If you have enabled iCloud Backup (iOS) or Google Drive Backup (Android), your device's
+      operating system may include codes.'s local data in those backups. Those backups are
+      encrypted by Apple or Google respectively, and we have no access to them. Refer to
+      Apple's and Google's documentation for details on managing your backups.
+    </p>
+
+    <h2>10. Changes to this policy</h2>
+    <p>
+      If we change this policy, we will update the effective date at the top and post the
+      revised policy at this URL. Material changes will be highlighted in the app's release
+      notes.
+    </p>
+
+    <h2>11. Contact</h2>
+    <p>
+      For any privacy-related question:
+      <a href="mailto:service@evdiag.net">service@evdiag.net</a>.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div>&copy; 2026 EVDiag · codes.</div>
+    <nav>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/support">Support</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>codes. — promo code & voucher manager</title>
-  <meta name="description" content="Offline promo code and voucher distribution for solo merchants and small teams. No tracking, no accounts, no servers. iOS and Android.">
+  <meta name="description" content="Offline-first promo code and voucher distribution for solo merchants and small teams. No tracking, no accounts. Optional encrypted cloud sync. iOS and Android.">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta property="og:title" content="codes. — promo code & voucher manager">
-  <meta property="og:description" content="Distribute promo codes and vouchers offline. Team-shareable. No tracking.">
+  <meta property="og:description" content="Distribute promo codes and vouchers offline-first. Team-shareable, with optional encrypted cloud sync. No tracking.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://codes.evdiag.net">
 </head>
@@ -34,7 +34,8 @@
       <h1>Distribute promo codes &amp; vouchers — <em>offline.</em></h1>
       <p class="lead">
         codes. is a phone-first promo code and voucher manager for solo merchants and small teams.
-        Everything stays on your device. No tracking, no accounts, no servers.
+        Everything stays on your device by default. No tracking, no accounts — with optional
+        end-to-end-encrypted cloud sync when your team wants it.
       </p>
 
       <div class="store-buttons">
@@ -54,7 +55,7 @@
       </div>
       <div class="feature">
         <div class="feature-title">Team mode <small>(Pro)</small></div>
-        <div class="feature-body">Share a code catalog with up to 2 phones via encrypted device-to-device transfers.</div>
+        <div class="feature-body">Share a code catalog with up to 2 phones via encrypted transfers — by file, or with optional cloud sync.</div>
       </div>
       <div class="feature">
         <div class="feature-title">Bulk distribution <small>(Pro)</small></div>
@@ -73,13 +74,16 @@
     <h2>Privacy by design</h2>
     <p>
       codes. stores everything locally on your device. There are no analytics, no telemetry,
-      no accounts, no servers receiving your data. Team transfers between devices are encrypted
-      with standard AES-GCM and never touch any cloud service.
+      and no accounts. Team transfers between devices are encrypted with standard AES-GCM. By
+      default they travel as files you share yourself; if you opt into Pro Online cloud sync,
+      the same end-to-end-encrypted messages are relayed through our server — which can never
+      read their contents.
     </p>
     <p>
-      The only external service is <a href="https://www.revenuecat.com/">RevenueCat</a>, used
-      exclusively for in-app purchase receipt validation. RevenueCat receives purchase events
-      from Apple and Google — it never sees your codes, customers, or any business data.
+      External services are kept to a minimum: <a href="https://www.revenuecat.com/">RevenueCat</a>
+      for in-app purchase receipt validation, and (only if you enable cloud sync) a relay server
+      on Cloudflare that carries encrypted messages it cannot read. Neither ever sees your codes,
+      customers, or any business data. See the <a href="/privacy">privacy policy</a> for details.
     </p>
 
     <h2>Pricing</h2>
@@ -87,9 +91,14 @@
       <strong>Free tier:</strong> solo mode, promo codes, basic vouchers, up to 200 active codes.
     </p>
     <p>
-      <strong>Pro:</strong> $4.99 one-time purchase. Unlocks team mode, bulk distribution to partner
-      businesses, partner database, multi-page PDF voucher generation, and unlimited codes.
-      No subscriptions, ever.
+      <strong>Pro Offline:</strong> one-time purchase. Unlocks team mode (file-based sharing),
+      bulk distribution to partner businesses, partner database, multi-page PDF voucher
+      generation, and unlimited codes.
+    </p>
+    <p>
+      <strong>Pro Online:</strong> one-time purchase. Everything in Pro Offline plus automatic
+      end-to-end-encrypted cloud sync for your team. Existing Pro Offline owners can upgrade at a
+      reduced price. No subscriptions, ever.
     </p>
 
     <h2>Questions?</h2>

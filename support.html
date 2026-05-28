@@ -44,7 +44,7 @@
     <p>
       Make sure you are signed in to the device with the same Apple ID or Google account that
       made the original purchase. Apple and Google do not currently support sharing entitlements
-      across platforms (iOS purchase does not unlock Pro on Android, and vice versa).
+      across platforms (an iOS purchase does not unlock Pro on Android, and vice versa).
     </p>
 
     <h3>How do I back up my data?</h3>
@@ -63,23 +63,51 @@
       file. The app will restore your codes, categories, vouchers, and team configuration.
     </p>
 
-    <h3>I lost access to my account or device — can you recover my codes?</h3>
+    <h3>I lost access to my device — can you recover my codes?</h3>
     <p>
-      Unfortunately, no. Because codes. stores everything locally on your device and we
-      operate no server with your data, we have no way to recover lost codes. Please keep
-      a recent backup file in a safe place (cloud storage is fine).
+      Unfortunately, no. codes. stores your codes on your device, and even with online sync our
+      server only ever holds briefly-lived, end-to-end-encrypted messages that we cannot read —
+      so we have no copy of your codes to restore. Please keep a recent backup file in a safe
+      place (cloud storage is fine).
     </p>
 
     <h3>How does Team mode work?</h3>
     <p>
-      Team mode (Pro feature) lets up to two phones share a code catalog. One phone is the
-      Master (who owns the catalog and loads codes). The other is a Slave (who can give out
-      codes the Master assigns). Transfers between Master and Slave happen via encrypted
-      <code>.pcm</code> files sent through any channel (AirDrop, WhatsApp, email).
+      Team mode (a Pro feature) lets up to two phones share a code catalog. One phone is the
+      Master (who owns the catalog and loads codes); the other is a Slave (who gives out codes
+      the Master assigns). There are two ways to share:
     </p>
+    <ul>
+      <li><strong>Offline (Pro):</strong> Master and Slave exchange encrypted <code>.pcm</code> files through any channel (AirDrop, WhatsApp, email, file managers). You tap the received file to import it.</li>
+      <li><strong>Online sync (Pro Online):</strong> the same encrypted messages are relayed automatically through our cloud server, so transfers, confirmations, and status updates happen without anyone exchanging files by hand. It is opt-in and can be switched on or off in Settings; the team works the same either way because the encryption is identical.</li>
+    </ul>
     <p>
       Only the Master needs to purchase Pro. Slaves connect for free using a team invite QR
       code shared by the Master.
+    </p>
+
+    <h3>Is online sync private? What can your server see?</h3>
+    <p>
+      Yes. With online sync, every message is end-to-end encrypted on your device before it is
+      sent, using a team key that never leaves your devices. Our server is a relay that cannot
+      read message contents — it only sees an anonymous sender/recipient identifier, the message
+      size, and the time. It never sees your codes, vouchers, customer names, or who you are.
+      See our <a href="/privacy">Privacy Policy</a> for the full detail.
+    </p>
+
+    <h3 id="delete-sync-data">How do I delete my online sync data?</h3>
+    <p>
+      If you have used online sync and want your server-side data removed:
+    </p>
+    <ul>
+      <li><strong>In the app:</strong> Settings → online sync → "Delete sync account". This permanently removes your inbox and your anonymous user record from our server.</li>
+      <li><strong>By email:</strong> write to <a href="mailto:service@evdiag.net">service@evdiag.net</a> and we will delete your sync data for you.</li>
+      <li><strong>Automatically:</strong> relayed messages are deleted once delivered or after they expire (a default of 7 days, never more than 30), and inactive sync accounts are removed after 90 days — so abandoned data does not linger.</li>
+    </ul>
+    <p>
+      This affects only the optional cloud-sync data. Your on-device codes and vouchers are
+      separate and are removed by uninstalling the app. If you never enabled online sync, there
+      is no server-side data to delete.
     </p>
 
     <h3>What is a partner / bulk distribution?</h3>

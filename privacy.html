@@ -59,7 +59,9 @@
     <p>See <a href="https://www.revenuecat.com/privacy/">RevenueCat's privacy policy</a> for their handling.</p>
 
     <h3>2d. Crash reports (if enabled)</h3>
-    <p>The app does not currently send crash reports or diagnostic data. If this changes in a future version, the change will be opt-in and disclosed in an updated version of this policy.</p>
+    <p>Crash reporting is <strong>off by default</strong>. You can turn it on in Settings → "Send crash reports". When enabled, the app sends an anonymized report to our own relay server (not a third party) only when an error occurs.</p>
+    <p>Each report contains: the error message and technical stack trace, the app version, your platform (iOS/Android), which screen was open, a random anonymous identifier (not linked to your identity), and a timestamp. Before sending, the app redacts code-like strings (e.g. promo codes, voucher IDs) and email addresses from the error text.</p>
+    <p>Crash reports <strong>never</strong> contain your codes, vouchers, customer or partner names, or any identifying personal information. Reports are rate-limited (at most a handful per session). You can disable crash reporting anytime in Settings; no further reports are sent once it's off.</p>
 
     <h2>3. What we never collect</h2>
     <ul>
@@ -98,7 +100,7 @@
     <ul>
       <li><strong>Apple App Store / Google Play</strong> — handle app distribution and in-app purchases. Subject to their own privacy policies.</li>
       <li><strong>RevenueCat</strong> — validates IAP receipts. Receives anonymous device IDs and purchase metadata.</li>
-      <li><strong>Cloudflare Workers</strong> — hosts the optional encrypted relay for cloud sync. Receives only encrypted bytes and routing identifiers.</li>
+      <li><strong>Cloudflare Workers</strong> — hosts our own relay for the optional cloud sync (encrypted bytes + routing identifiers) and, if you opt in, anonymized crash reports. This is our infrastructure, not a third-party analytics processor.</li>
     </ul>
 
     <h2>9. Changes to this policy</h2>

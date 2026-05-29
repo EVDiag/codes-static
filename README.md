@@ -1,68 +1,54 @@
-# codes.evdiag.net
+# codes-static
 
-Static website for the **codes.** mobile app — privacy policy, terms,
-support, and landing page.
+Static website for [codes.evdiag.net](https://codes.evdiag.net).
 
-## What this is
+This is the public site for the **codes.** mobile app — landing page, privacy policy, terms of use, and support FAQ. Hosted on GitHub Pages with a custom domain.
 
-This repository is hosted via **GitHub Pages** at the custom domain
-`codes.evdiag.net`. The site is plain HTML/CSS with no build step.
+## Files
 
-## Structure
+| File | Purpose |
+|---|---|
+| `index.html` | Landing page with store links and feature overview |
+| `privacy.html` | Privacy policy (required by Apple App Store + Google Play) |
+| `terms.html` | Terms of use |
+| `support.html` | Support contact + FAQ |
+| `404.html` | Custom 404 |
+| `style.css` | Shared CSS for all pages |
+| `CNAME` | GitHub Pages custom domain (`codes.evdiag.net`) |
+| `.well-known/apple-app-site-association` | iOS Universal Links manifest (template — fill in Apple Team ID) |
+| `.well-known/assetlinks.json` | Android App Links manifest (template — fill in SHA-256 fingerprint) |
 
-```
-/                       — landing page (index.html)
-/privacy                — privacy policy (privacy.html)
-/terms                  — terms of service (terms.html)
-/support                — support and FAQ (support.html)
-/.well-known/
-  apple-app-site-association   — iOS Universal Links (placeholders)
-  assetlinks.json              — Android App Links (placeholders)
-```
+## Local preview
 
-## Deployment
-
-GitHub Pages serves the `main` branch. Pushing changes to `main`
-automatically deploys to https://codes.evdiag.net within ~1 minute.
-
-## DNS configuration
-
-The custom domain is set up via Microsoft Entra DNS (where evdiag.net
-is hosted):
-
-| Type  | Host  | Points to            | TTL    |
-|-------|-------|----------------------|--------|
-| CNAME | codes | evdiag.github.io     | 1 hour |
-
-The `CNAME` file in the repo root tells GitHub Pages to serve this
-content at `codes.evdiag.net`.
-
-## .well-known placeholders
-
-Two files require real values before iOS Universal Links and Android
-App Links will work:
-
-### apple-app-site-association
-
-Replace `REPLACE_WITH_APPLE_TEAM_ID` with the 10-character Apple
-Developer Team ID, found at developer.apple.com → Membership.
-
-### assetlinks.json
-
-Replace `REPLACE_WITH_SHA256_FINGERPRINT_FROM_KEYSTORE` with the
-SHA-256 fingerprint of the release keystore. Extract via:
-
-```
-keytool -list -v -keystore codes-release.keystore -alias codes-release
+```bash
+# Any static server works. Examples:
+python3 -m http.server 8000
+# or
+npx serve .
 ```
 
-Find the line "SHA256:" and copy the 64-character hex string (no
-colons, no spaces — but keep the uppercase letters).
+## Deploy
 
-Or, after Play Console signs your first AAB upload, retrieve from
-**Play Console → Setup → App integrity → App signing key
-certificate → SHA-256 certificate fingerprint**.
+Changes pushed to `main` deploy automatically via GitHub Pages.
 
-## License
+```powershell
+cd C:\Users\rfmot\codes-static
+git add .
+git commit -m "Update privacy policy"
+git push
+```
 
-Copyright (c) 2026 EVDiag. All rights reserved.
+Site updates within ~1 minute of push.
+
+## Universal Links / App Links setup (deferred)
+
+Both `.well-known` files contain placeholder values that must be replaced before iOS Universal Links or Android App Links will work:
+
+- **Apple Team ID** (10 characters): developer.apple.com → Membership → Team ID. Replace `REPLACE_WITH_APPLE_TEAM_ID` in `apple-app-site-association`.
+- **Android SHA-256 fingerprint**: from Play Console after first AAB upload → Setup → App integrity → App signing key certificate → "SHA-256 certificate fingerprint". Remove the colons (uppercase hex) and paste into `assetlinks.json`.
+
+Neither is required for the basic landing/privacy/terms/support pages to work.
+
+## Contact
+
+[support@evdiag.net](mailto:support@evdiag.net)

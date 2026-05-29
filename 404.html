@@ -1,44 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page not found — codes.</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — codes.</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <div class="wrap">
+    <header>
+      <a href="/" class="brand">codes<span class="dot">.</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+      </nav>
+    </header>
 
-<header>
-  <div class="container">
-    <a href="/" class="brand">codes<span class="dot">.</span></a>
-    <div class="tagline">Promo code &amp; voucher manager</div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
+    <h1>Not found</h1>
+    <p class="lead">The page you're looking for doesn't exist. It may have been moved, or the link might be wrong.</p>
+
+    <p style="margin-top:32px;">Try one of these:</p>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+      <li><a href="/terms">Terms of Use</a></li>
+      <li><a href="/support">Support</a></li>
+    </ul>
+
+    <footer>
+      <a href="/privacy">Privacy</a>·
+      <a href="/terms">Terms</a>·
       <a href="/support">Support</a>
-    </nav>
+      <div style="margin-top:10px;">© <span id="year">2026</span> EVDiag · codes.</div>
+    </footer>
   </div>
-</header>
-
-<main>
-  <div class="container">
-    <h1>Page not found</h1>
-    <p class="lead">The page you were looking for doesn't exist.</p>
-    <p><a href="/">Return to home</a></p>
-  </div>
-</main>
-
-<footer>
-  <div class="container">
-    <div>&copy; 2026 EVDiag · codes.</div>
-    <nav>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="/support">Support</a>
-    </nav>
-  </div>
-</footer>
-
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

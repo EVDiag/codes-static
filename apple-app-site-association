@@ -1,0 +1,20 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "REPLACE_WITH_APPLE_TEAM_ID.com.rfmot.promocodes",
+        "paths": [
+          "/share/*",
+          "/invite/*",
+          "/redeem/*"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "REPLACE_WITH_APPLE_TEAM_ID.com.rfmot.promocodes"
+    ]
+  }
+}

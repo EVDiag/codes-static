@@ -1,125 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>codes. — promo code & voucher manager</title>
-  <meta name="description" content="Offline-first promo code and voucher distribution for solo merchants and small teams. No tracking, no accounts. Optional encrypted cloud sync. iOS and Android.">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <meta property="og:title" content="codes. — promo code & voucher manager">
-  <meta property="og:description" content="Distribute promo codes and vouchers offline-first. Team-shareable, with optional encrypted cloud sync. No tracking.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://codes.evdiag.net">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>codes. — promo code & voucher distribution for small teams</title>
+  <meta name="description" content="A small offline-first app for handing out promo codes and vouchers. No accounts. No tracking. End-to-end encrypted team mode.">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
-<header>
-  <div class="container">
-    <a href="/" class="brand">codes<span class="dot">.</span></a>
-    <div class="tagline">Promo code &amp; voucher manager</div>
-    <nav>
-      <a href="/" class="active">Home</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="/support">Support</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <div class="container">
+  <div class="wrap">
+    <header>
+      <a href="/" class="brand">codes<span class="dot">.</span></a>
+      <nav>
+        <a href="/" class="active">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+      </nav>
+    </header>
 
     <section class="hero">
-      <h1>Distribute promo codes &amp; vouchers — <em>offline.</em></h1>
-      <p class="lead">
-        codes. is a phone-first promo code and voucher manager for solo merchants and small teams.
-        Everything stays on your device by default. No tracking, no accounts — with optional
-        end-to-end-encrypted cloud sync when your team wants it.
-      </p>
+      <h1>codes<span style="color:var(--ink);font-style:normal">.</span></h1>
+      <p class="tagline">A small offline-first app for handing out promo codes and vouchers. No accounts. No tracking. End-to-end encrypted team mode.</p>
 
-      <div class="store-buttons">
-        <a href="#" class="store-btn disabled">App Store — coming soon</a>
-        <a href="#" class="store-btn disabled">Google Play — coming soon</a>
+      <div class="store-badges">
+        <a href="https://play.google.com/store/apps/details?id=com.rfmot.promocodes">Get on Google Play</a>
+        <a href="https://apps.apple.com/app/id6772552895">Get on the App Store</a>
       </div>
     </section>
 
-    <section class="hero-features">
-      <div class="feature">
-        <div class="feature-title">Promo codes</div>
-        <div class="feature-body">Paste, generate, or import codes by CSV. Distribute one-by-one or in batches.</div>
-      </div>
-      <div class="feature">
-        <div class="feature-title">Personalized vouchers</div>
-        <div class="feature-body">Generate vouchers with customer names and QR codes. Multi-page PDF export.</div>
-      </div>
-      <div class="feature">
-        <div class="feature-title">Team mode <small>(Pro)</small></div>
-        <div class="feature-body">Share a code catalog with up to 2 phones via encrypted transfers — by file, or with optional cloud sync.</div>
-      </div>
-      <div class="feature">
-        <div class="feature-title">Bulk distribution <small>(Pro)</small></div>
-        <div class="feature-body">Assign batches to partner businesses. Track who got what.</div>
-      </div>
-      <div class="feature">
-        <div class="feature-title">Daily team reports</div>
-        <div class="feature-body">See what's been delivered today across the whole team.</div>
-      </div>
-      <div class="feature">
-        <div class="feature-title">QR code scanner</div>
-        <div class="feature-body">Fast voucher redemption with built-in QR scanner.</div>
+    <section>
+      <h2>What it does</h2>
+      <p>codes. helps small businesses, marketers, and partner networks distribute single-use promotional codes and vouchers without spreadsheets or messy WhatsApp threads.</p>
+
+      <div class="features">
+        <div class="feature">
+          <h3>Codes & vouchers</h3>
+          <p>Track promo codes (one-time use) and vouchers (issue and redeem) in separate categories. Bulk import via CSV or paste-from-clipboard.</p>
+        </div>
+        <div class="feature">
+          <h3>Team mode</h3>
+          <p>Pair up to 2 phones securely. The Owner controls the inventory; Distributors hand out codes in the field. End-to-end encrypted.</p>
+        </div>
+        <div class="feature">
+          <h3>Cloud sync (Online tier)</h3>
+          <p>Optional silent sync between paired phones via an encrypted relay. The relay never sees your codes — only encrypted bytes.</p>
+        </div>
+        <div class="feature">
+          <h3>Multi-page voucher PDFs</h3>
+          <p>Generate printable voucher booklets with QR codes for redemption. Print-ready for local print shops.</p>
+        </div>
+        <div class="feature">
+          <h3>Offline-first</h3>
+          <p>Works without internet. Everything lives on your phone. Cloud sync is opt-in.</p>
+        </div>
+        <div class="feature">
+          <h3>No accounts</h3>
+          <p>No sign-up. No email collection. No tracking. Just install and use.</p>
+        </div>
       </div>
     </section>
 
-    <h2>Privacy by design</h2>
-    <p>
-      codes. stores everything locally on your device. There are no analytics, no telemetry,
-      and no accounts. Team transfers between devices are encrypted with standard AES-GCM. By
-      default they travel as files you share yourself; if you opt into Pro Online cloud sync,
-      the same end-to-end-encrypted messages are relayed through our server — which can never
-      read their contents.
-    </p>
-    <p>
-      External services are kept to a minimum: <a href="https://www.revenuecat.com/">RevenueCat</a>
-      for in-app purchase receipt validation, and (only if you enable cloud sync) a relay server
-      on Cloudflare that carries encrypted messages it cannot read. Neither ever sees your codes,
-      customers, or any business data. See the <a href="/privacy">privacy policy</a> for details.
-    </p>
+    <section>
+      <h2>Pricing</h2>
+      <p><strong>Free tier:</strong> up to 200 active codes; single-phone use.</p>
+      <p><strong>Pro Team ($9.99 one-time):</strong> unlimited codes, team mode, bulk distribution, partner database, PDF vouchers, daily team status reports — file-share transport.</p>
+      <p><strong>Pro Online ($24.99 one-time):</strong> everything in Pro Team, plus silent cloud sync, request-codes flow, and the live team-status panel.</p>
+      <p><strong>Upgrade ($15.99):</strong> if you already own Pro Team and want to add Online sync.</p>
+      <p class="meta">All purchases are one-time. No subscriptions. Distributor phones are free via Owner's invite — the Owner pays once.</p>
+    </section>
 
-    <h2>Pricing</h2>
-    <p>
-      <strong>Free tier:</strong> solo mode, promo codes, basic vouchers, up to 200 active codes.
-    </p>
-    <p>
-      <strong>Pro Offline:</strong> one-time purchase. Unlocks team mode (file-based sharing),
-      bulk distribution to partner businesses, partner database, multi-page PDF voucher
-      generation, and unlimited codes.
-    </p>
-    <p>
-      <strong>Pro Online:</strong> one-time purchase. Everything in Pro Offline plus automatic
-      end-to-end-encrypted cloud sync for your team. Existing Pro Offline owners can upgrade at a
-      reduced price. No subscriptions, ever.
-    </p>
-
-    <h2>Questions?</h2>
-    <p>
-      Contact us at <a href="mailto:service@evdiag.net">service@evdiag.net</a> or
-      see the <a href="/support">support page</a>.
-    </p>
-
-  </div>
-</main>
-
-<footer>
-  <div class="container">
-    <div>&copy; 2026 EVDiag · codes.</div>
-    <nav>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
+    <footer>
+      <a href="/privacy">Privacy</a>·
+      <a href="/terms">Terms</a>·
       <a href="/support">Support</a>
-    </nav>
+      <div style="margin-top:10px;">© <span id="year">2026</span> EVDiag · codes.</div>
+    </footer>
   </div>
-</footer>
-
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

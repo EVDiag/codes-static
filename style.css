@@ -1,291 +1,214 @@
-/* codes.evdiag.net — minimal styling, matches app aesthetic */
-
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap');
+/* codes.evdiag.net — shared styles
+   Minimal, paper-like aesthetic matching the app. No external deps. */
 
 :root {
-  --paper:        #faf7f2;
-  --paper-2:      #efe9dd;
-  --ink:          #1a1814;
-  --ink-soft:     #4a443b;
-  --muted:        #8a8378;
-  --rule:         #e0d7c5;
-  --rule-strong:  #c8bca5;
-  --accent:       #7A2E2E;    /* maroon — same as app */
-  --accent-soft:  #c4978e;
-  --blue:         #1F4D6B;    /* promo accent */
-  --link:         #5a3a3a;
+  --paper:    #F5EFE3;
+  --paper-2:  #ECE5D3;
+  --ink:      #2A2A28;
+  --ink-soft: #4A4A45;
+  --muted:    #8A8278;
+  --rule:     #D9D1BD;
+  --accent:   #7A2E2E;
+  --amber:    #B45F06;
+  --amber-bg: #FDF4E3;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; }
 
-html {
-  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--ink);
+html, body {
+  margin: 0; padding: 0;
   background: var(--paper);
-  -webkit-text-size-adjust: 100%;
+  color: var(--ink);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.container {
+.wrap {
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 24px;
-  width: 100%;
+  padding: 32px 24px 64px;
 }
-
-/* ─── Header ─────────────────────────────────────────────── */
 
 header {
-  padding: 32px 0 16px;
-  border-bottom: 1px solid var(--rule);
+  padding-top: 8px;
   margin-bottom: 32px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 20px;
 }
 
-.brand {
-  font-family: 'Instrument Serif', serif;
+header .brand {
+  font-family: 'Times New Roman', Times, Georgia, serif;
   font-style: italic;
   font-size: 32px;
-  font-weight: 400;
-  color: var(--ink);
+  color: var(--accent);
   text-decoration: none;
-  letter-spacing: -0.02em;
+  display: inline-block;
 }
 
-.brand:hover { color: var(--accent); }
-
-.brand .dot { color: var(--accent); }
-
-.tagline {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 4px;
-  font-weight: 500;
+header .brand .dot {
+  color: var(--ink);
+  font-style: normal;
 }
 
-nav {
-  margin-top: 16px;
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
+header nav {
+  margin-top: 14px;
   font-size: 14px;
 }
 
-nav a {
-  color: var(--ink-soft);
+header nav a {
+  color: var(--muted);
   text-decoration: none;
-  font-weight: 500;
+  margin-right: 18px;
 }
 
-nav a:hover { color: var(--accent); }
-
-nav a.active { color: var(--accent); font-weight: 600; }
-
-/* ─── Main content ────────────────────────────────────────── */
-
-main {
-  flex: 1;
-  padding: 8px 0 80px;
+header nav a:hover { color: var(--ink); }
+header nav a.active {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 h1 {
-  font-family: 'Instrument Serif', serif;
-  font-weight: 400;
-  font-size: 44px;
-  line-height: 1.1;
-  margin-bottom: 16px;
-  letter-spacing: -0.02em;
-}
-
-h1 em {
+  font-family: 'Times New Roman', Times, Georgia, serif;
   font-style: italic;
-  color: var(--accent);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0 0 8px;
+  line-height: 1.15;
 }
 
 h2 {
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 26px;
-  margin: 32px 0 12px;
+  font-size: 20px;
+  margin-top: 36px;
+  margin-bottom: 12px;
   color: var(--ink);
 }
 
 h3 {
   font-size: 16px;
-  font-weight: 600;
-  margin: 20px 0 8px;
-  color: var(--ink);
-}
-
-p {
-  margin-bottom: 14px;
+  margin-top: 24px;
+  margin-bottom: 8px;
   color: var(--ink-soft);
 }
 
-p.lead {
-  font-size: 18px;
-  color: var(--ink);
-  margin-bottom: 24px;
-}
-
-ul, ol {
-  padding-left: 24px;
-  margin-bottom: 16px;
+p, ul, ol {
   color: var(--ink-soft);
+  font-size: 15px;
 }
 
+ul, ol { padding-left: 24px; }
 li { margin-bottom: 6px; }
 
-a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
-a:hover { color: var(--accent); }
+a { color: var(--accent); }
 
-strong { color: var(--ink); font-weight: 600; }
+.lead {
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin-top: 0;
+}
 
-code {
+.meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.note {
   background: var(--paper-2);
-  padding: 2px 6px;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 14px;
+  margin: 18px 0;
+  border-left: 3px solid var(--accent);
+}
+
+.warn {
+  background: var(--amber-bg);
+  color: var(--amber);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 14px;
+  margin: 18px 0;
+  border-left: 3px solid var(--amber);
+}
+
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  background: var(--paper-2);
+  padding: 1px 6px;
   border-radius: 4px;
   font-size: 13px;
-  font-family: 'SF Mono', Menlo, Consolas, monospace;
 }
 
-hr {
-  border: none;
+footer {
+  margin-top: 64px;
+  padding-top: 24px;
   border-top: 1px solid var(--rule);
-  margin: 32px 0;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
 }
 
-/* ─── Landing page hero ───────────────────────────────────── */
+footer a { color: var(--muted); margin: 0 8px; }
 
+/* Hero (landing only) */
 .hero {
-  padding: 24px 0 32px;
+  text-align: center;
+  padding: 32px 0;
 }
 
-.hero-features {
+.hero .tagline {
+  font-size: 18px;
+  color: var(--ink-soft);
+  max-width: 480px;
+  margin: 12px auto 28px;
+}
+
+.store-badges {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.store-badges a {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.features {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
-  margin: 32px 0;
+  gap: 20px;
+  margin-top: 40px;
 }
 
-@media (min-width: 600px) {
-  .hero-features {
-    grid-template-columns: 1fr 1fr;
-  }
+@media (min-width: 640px) {
+  .features { grid-template-columns: 1fr 1fr; }
 }
 
 .feature {
   background: var(--paper-2);
-  padding: 16px 18px;
   border-radius: 12px;
-  border: 1px solid var(--rule);
+  padding: 20px;
 }
 
-.feature-title {
-  font-weight: 600;
-  font-size: 14px;
+.feature h3 {
+  margin: 0 0 8px;
   color: var(--ink);
-  margin-bottom: 4px;
+  font-size: 16px;
 }
 
-.feature-body {
-  font-size: 13px;
-  color: var(--ink-soft);
-  line-height: 1.5;
-}
-
-.store-buttons {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin: 24px 0;
-}
-
-.store-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: var(--ink);
-  color: var(--paper);
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  transition: opacity 0.15s;
-}
-
-.store-btn:hover {
-  color: var(--paper);
-  opacity: 0.85;
-}
-
-.store-btn.disabled {
-  background: var(--rule-strong);
-  color: var(--muted);
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-/* ─── Legal page meta ─────────────────────────────────────── */
-
-.legal-meta {
-  font-size: 13px;
-  color: var(--muted);
-  padding: 8px 0 24px;
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: 24px;
-}
-
-.legal-meta strong { color: var(--ink-soft); }
-
-/* ─── Footer ──────────────────────────────────────────────── */
-
-footer {
-  background: var(--paper-2);
-  border-top: 1px solid var(--rule);
-  padding: 32px 0;
-  margin-top: auto;
-}
-
-footer .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-footer nav {
+.feature p {
   margin: 0;
-  gap: 18px;
-}
-
-footer nav a {
-  color: var(--muted);
-}
-
-footer nav a:hover {
-  color: var(--accent);
-}
-
-/* ─── Mobile tweaks ───────────────────────────────────────── */
-
-@media (max-width: 600px) {
-  .container { padding: 0 20px; }
-  h1 { font-size: 34px; }
-  h2 { font-size: 22px; }
-  header { padding: 24px 0 12px; margin-bottom: 24px; }
-  main { padding: 0 0 48px; }
-  .brand { font-size: 28px; }
-  footer .container { flex-direction: column; text-align: center; }
+  font-size: 14px;
+  color: var(--ink-soft);
 }

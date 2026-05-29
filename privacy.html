@@ -1,231 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy — codes.</title>
-  <meta name="description" content="Privacy policy for codes. — the promo code and voucher manager.">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="description" content="Privacy policy for the codes. app. No accounts. No tracking. End-to-end encrypted optional cloud sync.">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
-<header>
-  <div class="container">
-    <a href="/" class="brand">codes<span class="dot">.</span></a>
-    <div class="tagline">Promo code &amp; voucher manager</div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/privacy" class="active">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="/support">Support</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <div class="container">
+  <div class="wrap">
+    <header>
+      <a href="/" class="brand">codes<span class="dot">.</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/privacy" class="active">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+      </nav>
+    </header>
 
     <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: May 2026</p>
 
-    <div class="legal-meta">
-      <strong>Effective date:</strong> 28 May 2026 ·
-      <strong>App:</strong> codes. — Vouchers &amp; Promo Manager ·
-      <strong>Publisher:</strong> EVDiag
+    <p class="lead">codes. is an offline-first app. We don't collect, store, or share personal information on our servers. This page describes what data the app handles, where it lives, and the limited cases where data leaves your device.</p>
+
+    <div class="note">
+      <strong>Short version:</strong> The app works entirely on your phone. There are no user accounts. We never see your codes, vouchers, customer names, or business data. Optional cloud sync between paired phones uses end-to-end encryption — the relay server can't read what passes through it.
     </div>
 
-    <p class="lead">
-      Short version: codes. stores everything on your device. We do not track you or run any
-      analytics. There are two external services, used only if you choose the relevant features:
-      RevenueCat processes one-time in-app purchases, and our optional cloud sync (part of the
-      Pro Online tier) relays end-to-end-encrypted messages between your team's devices. Even
-      with cloud sync, our server never sees the contents of anything you store — every payload
-      is encrypted on your device before it leaves it.
-    </p>
-
-    <h2>1. Who we are</h2>
-    <p>
-      codes. is an application published by EVDiag. For privacy questions, contact us at
-      <a href="mailto:service@evdiag.net">service@evdiag.net</a>.
-    </p>
-
-    <h2>2. What data the app collects</h2>
-    <p>
-      <strong>On-device data:</strong> The app stores your promo codes, voucher templates, customer
-      contact entries, team configuration, and category settings locally on your device. By default
-      this data never leaves your device.
-    </p>
-    <p>
-      <strong>No analytics or telemetry:</strong> We do not embed any analytics SDK, crash
-      reporting service, or telemetry collector in the application. We do not know how often
-      you open the app, what features you use, or what data you create.
-    </p>
-    <p>
-      <strong>Account / identifier — only if you enable cloud sync:</strong> The app does not
-      require you to create an account, give an email, or log in. If — and only if — you turn on
-      online sync (an opt-in Pro Online feature, off by default), the app generates a random,
-      anonymous device identifier (for example <code>u_3f9a…</code>) and an authentication token,
-      and registers them with our cloud-sync service so your devices can exchange messages. This
-      identifier is not linked to your name, email, or any real-world identity. See Section 5.
-    </p>
-
-    <h2>3. Permissions the app requests</h2>
-    <p>The app may request these device permissions, all used exclusively for the stated purpose:</p>
+    <h2>1. What data the app stores</h2>
+    <p>All data is stored locally on your device in the app's private storage:</p>
     <ul>
-      <li><strong>Camera:</strong> to scan QR codes for voucher redemption and team setup. Scans are processed entirely on your device.</li>
-      <li><strong>Notifications:</strong> to schedule local reminders (e.g. daily team status reports). Notifications originate from your device, not from any remote server.</li>
-      <li><strong>Photo library / storage:</strong> to save voucher images and PDF exports you choose to create. We do not read existing files except those you specifically open with codes..</li>
-      <li><strong>Internet:</strong> used for in-app purchase processing (see Section 4), optional cloud sync (see Section 5), and for opening external links you explicitly tap (such as this privacy policy).</li>
-      <li><strong>Bluetooth (Android only):</strong> reserved for future thermal-printer support. Currently unused. Declared with the <code>neverForLocation</code> flag — never used to determine location.</li>
+      <li>Promo codes and vouchers you've added (text strings; you control the source)</li>
+      <li>Categories you've created (names, descriptions, types)</li>
+      <li>Customer or recipient information you've manually entered (names, optional contact details)</li>
+      <li>Partner business records (Pro feature)</li>
+      <li>Team configuration if you've paired with another phone (team name, member names, shared encryption key)</li>
+      <li>App settings (language, preferred sharing app, etc.)</li>
+    </ul>
+    <p>None of this is transmitted to us. We have no servers that store your business data.</p>
+
+    <h2>2. What data leaves your device</h2>
+
+    <h3>2a. Team transfers (file-share mode)</h3>
+    <p>When you send codes to a teammate using the file-share workflow (WhatsApp, AirDrop, email, etc.), the app generates an encrypted .pcm file containing the codes and metadata. You choose which app delivers the file. The contents are encrypted with a shared key that only the paired phones know — even if intercepted, the file can't be read without the key.</p>
+
+    <h3>2b. Cloud sync (Pro Online tier — opt-in)</h3>
+    <p>If you purchase Pro Online and enable cloud sync, paired phones exchange encrypted packages via a relay server (currently hosted on Cloudflare Workers).</p>
+    <ul>
+      <li><strong>What the relay sees:</strong> a teamId (random identifier), the destination userId (random identifier), and encrypted bytes.</li>
+      <li><strong>What the relay does NOT see:</strong> the codes themselves, voucher contents, customer names, your real identity, or anything else inside the package — encryption happens on-device before transmission using AES-GCM with a key that never leaves your phone.</li>
+      <li><strong>How long messages are kept:</strong> messages are deleted from the relay shortly after the recipient retrieves them. Undelivered messages expire automatically.</li>
+      <li><strong>How to opt out:</strong> cloud sync is disabled by default. You can disable it anytime in Settings; the app falls back to file-share mode.</li>
     </ul>
 
-    <h2>4. Third-party services</h2>
-    <p>
-      <strong>RevenueCat</strong> (<a href="https://www.revenuecat.com/privacy/">privacy.revenuecat.com</a>)
-      processes in-app purchases. When you make a purchase, RevenueCat receives:
-    </p>
-    <ul>
-      <li>A randomly-generated anonymous identifier for your device</li>
-      <li>The product purchased (one of: <code>pro_team_unlock</code>, <code>pro_online_unlock</code>, <code>pro_online_upgrade</code>)</li>
-      <li>The receipt from Apple App Store or Google Play, used to verify the purchase is genuine</li>
-      <li>Standard transaction metadata (country, price, currency, purchase date)</li>
-    </ul>
-    <p>
-      RevenueCat does not receive any of your code, voucher, customer, or team data. Its
-      role is limited to verifying purchase receipts with Apple/Google and informing the app
-      whether you have an active Pro or Pro Online entitlement.
-    </p>
-    <p>
-      <strong>Cloudflare</strong> (<a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a>)
-      hosts our optional cloud-sync server (see Section 5). As the network and database provider,
-      Cloudflare processes the encrypted relay traffic and, like any web host, its edge logs may
-      record connection metadata such as IP address, request URL, and timestamp under Cloudflare's
-      own retention policy. Cloudflare cannot read message contents, which are end-to-end encrypted
-      before transmission.
-    </p>
-    <p>
-      <strong>Apple App Store / Google Play:</strong> when you install or update the app, or
-      make an in-app purchase, your interaction with these stores is governed by Apple's and
-      Google's respective privacy policies. We do not control what data they collect.
-    </p>
+    <h3>2c. In-app purchases (Pro upgrades)</h3>
+    <p>Purchases are processed by Apple App Store or Google Play. We use <a href="https://www.revenuecat.com/">RevenueCat</a> to validate receipts and track entitlements across devices. RevenueCat receives an anonymous device identifier and the purchase receipt — no personal info from you.</p>
+    <p>See <a href="https://www.revenuecat.com/privacy/">RevenueCat's privacy policy</a> for their handling.</p>
 
-    <h2>5. Team sharing — offline files and optional online sync</h2>
-    <p>
-      Team mode lets two devices share a code catalog. Transfers can happen two ways, and in
-      both cases the payload is encrypted on your device with <strong>AES-GCM</strong> using a
-      shared team key that you create and that never leaves your devices — we never have it.
-    </p>
-    <p>
-      <strong>Offline (default): peer-to-peer files.</strong> You exchange encrypted
-      <code>.pcm</code> files (codes. package format) through whatever channel you choose
-      (AirDrop, WhatsApp, email, file-sharing apps). No server controlled by us is involved at
-      any point. If you use a third-party channel like WhatsApp or email, that channel's privacy
-      policy applies to the file in transit. Once received and opened in codes., the payload is
-      decrypted on-device and processed locally.
-    </p>
-    <p>
-      <strong>Online (optional, Pro Online): encrypted relay.</strong> If you enable online sync,
-      the same encrypted messages are routed through our cloud-sync server instead of shared
-      manually. The server acts as a "dumb mailbox":
-    </p>
+    <h3>2d. Crash reports (if enabled)</h3>
+    <p>The app does not currently send crash reports or diagnostic data. If this changes in a future version, the change will be opt-in and disclosed in an updated version of this policy.</p>
+
+    <h2>3. What we never collect</h2>
     <ul>
-      <li><strong>What the server can read:</strong> nothing of substance. Message contents (your codes, vouchers, names, and team data) are end-to-end encrypted; the server only ever stores an opaque encrypted blob.</li>
-      <li><strong>What the server can see (metadata):</strong> the sender and recipient anonymous device identifiers, the size of each encrypted message, and the time it was sent or received. It cannot tell who anyone is by name.</li>
-      <li><strong>What we deliberately do not log:</strong> we do not log message contents, recipients, or senders in our application logs. (Cloudflare's edge logs capture connection metadata as described in Section 4.)</li>
+      <li>Your name, email, phone number (you never give them to us)</li>
+      <li>Your location (the app doesn't request location permissions)</li>
+      <li>Your contacts (the app doesn't request contacts permissions)</li>
+      <li>Advertising identifiers</li>
+      <li>Usage analytics or telemetry</li>
+      <li>The actual content of your codes, vouchers, customers, or partner records</li>
     </ul>
 
-    <h2>6. Data retention</h2>
-    <p>
-      <strong>On your device:</strong> your local data persists as long as codes. is installed.
-      Uninstalling the app deletes all locally-stored data (with the backup caveats in Section 9).
-    </p>
-    <p>
-      <strong>Cloud sync (if used):</strong> relayed messages are deleted from the server as soon
-      as the recipient device confirms receipt, or automatically after they expire — a default of
-      7 days, never more than 30. An hourly cleanup removes anything past its expiry. Anonymous
-      sync accounts that have been inactive for 90 days and hold no pending messages are
-      automatically deleted.
-    </p>
-    <p>
-      <strong>RevenueCat:</strong> purchase records are retained per RevenueCat's policy. You may
-      request deletion of your RevenueCat anonymous identifier by contacting us at
-      <a href="mailto:service@evdiag.net">service@evdiag.net</a>.
-    </p>
-
-    <h2>7. Deleting your cloud-sync data</h2>
-    <p>
-      If you have used online sync, you can remove your server-side data at any time:
-    </p>
+    <h2>4. Permissions the app requests</h2>
     <ul>
-      <li><strong>In the app:</strong> Settings → online sync → "Delete sync account". This wipes your inbox and your anonymous user record from our server. Messages you already sent to a teammate remain in their inbox until their device receives them or they expire (they are that teammate's data to manage), and they are end-to-end encrypted throughout.</li>
-      <li><strong>By email:</strong> contact <a href="mailto:service@evdiag.net">service@evdiag.net</a> and we will delete your sync data.</li>
-      <li><strong>Automatically:</strong> all relayed messages expire (see Section 6), and inactive accounts are reaped after 90 days, so abandoned data does not linger.</li>
+      <li><strong>Camera</strong> — only when you scan a team-invite QR code or scan a voucher for redemption. Camera access is requested per-use and not retained.</li>
+      <li><strong>Storage / file access</strong> — to read CSV imports you select and to save backup files you create. The app reads only files you explicitly choose.</li>
+      <li><strong>Notifications</strong> — to remind you when an inbound team transfer arrives or when a daily status report is due. Notifications are local-only (generated by the app on your device, not pushed from a server).</li>
+      <li><strong>Internet</strong> — required only if you enable cloud sync (Pro Online) or restore in-app purchases. Otherwise the app makes no network requests.</li>
     </ul>
-    <p>
-      If you never enable online sync, there is no server-side data to delete.
-    </p>
 
-    <h2>8. Children's privacy</h2>
-    <p>
-      codes. is not directed at children under 13. We do not knowingly collect data from
-      children. If you believe a child has interacted with the app and you wish to report
-      a concern, contact <a href="mailto:service@evdiag.net">service@evdiag.net</a>.
-    </p>
+    <h2>5. Children</h2>
+    <p>This app is intended for use by businesses and adults distributing promotional content. It is not directed at children under 13 and we do not knowingly collect data from children.</p>
 
-    <h2>9. Your rights (GDPR, CCPA, and similar laws)</h2>
-    <p>
-      For data held on your device, you are in full control — it is yours, on your hardware.
-    </p>
-    <p>
-      For the limited data our cloud-sync server holds when you enable online sync (an anonymous
-      device identifier plus end-to-end-encrypted messages and their metadata), and for data held
-      by RevenueCat (an anonymous identifier and purchase history), you can:
-    </p>
+    <h2>6. Data retention &amp; deletion</h2>
+    <p>Because we don't store your data on our servers, there's nothing to "delete" on our side. To remove all data from your device:</p>
     <ul>
-      <li>Request a copy of the data we or RevenueCat hold about you</li>
-      <li>Request deletion (see Section 7 for the in-app and email options)</li>
-      <li>Withdraw consent by turning off online sync and/or ceasing to use the app</li>
+      <li>Open Settings → Clear all data, OR</li>
+      <li>Uninstall the app (removes all stored data with it)</li>
     </ul>
-    <p>
-      Because all of this data is anonymous (no name, email, or account profile), it cannot be
-      tied back to your identity by us. Contact <a href="mailto:service@evdiag.net">service@evdiag.net</a>
-      to exercise these rights.
-    </p>
+    <p>If you've used cloud sync, undelivered relay messages addressed to your phone will expire automatically.</p>
 
-    <h2>10. Device backups</h2>
-    <p>
-      If you have enabled iCloud Backup (iOS) or Google Drive Backup (Android), your device's
-      operating system may include codes.'s local data in those backups. Those backups are
-      encrypted by Apple or Google respectively, and we have no access to them. Refer to
-      Apple's and Google's documentation for details on managing your backups.
-    </p>
+    <h2>7. Security</h2>
+    <p>Team-mode communication (both file-share and cloud sync) uses AES-GCM with 256-bit keys. The shared team key is generated on the Owner's phone and transferred to Distributors via QR code during pairing — it never travels through any server.</p>
+    <p>Random initialization vectors are generated per-message. Replay protection is enforced via package-ID deduplication.</p>
 
-    <h2>11. Changes to this policy</h2>
-    <p>
-      If we change this policy, we will update the effective date at the top and post the
-      revised policy at this URL. Material changes will be highlighted in the app's release
-      notes.
-    </p>
+    <h2>8. Third parties</h2>
+    <ul>
+      <li><strong>Apple App Store / Google Play</strong> — handle app distribution and in-app purchases. Subject to their own privacy policies.</li>
+      <li><strong>RevenueCat</strong> — validates IAP receipts. Receives anonymous device IDs and purchase metadata.</li>
+      <li><strong>Cloudflare Workers</strong> — hosts the optional encrypted relay for cloud sync. Receives only encrypted bytes and routing identifiers.</li>
+    </ul>
 
-    <h2>12. Contact</h2>
-    <p>
-      For any privacy-related question:
-      <a href="mailto:service@evdiag.net">service@evdiag.net</a>.
-    </p>
+    <h2>9. Changes to this policy</h2>
+    <p>If we change how the app handles data, we will update this policy and post the new "Last updated" date. Material changes will be announced in-app.</p>
 
-  </div>
-</main>
+    <h2>10. Contact</h2>
+    <p>Questions about this privacy policy: <a href="mailto:support@evdiag.net">support@evdiag.net</a></p>
 
-<footer>
-  <div class="container">
-    <div>&copy; 2026 EVDiag · codes.</div>
-    <nav>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
+    <footer>
+      <a href="/privacy">Privacy</a>·
+      <a href="/terms">Terms</a>·
       <a href="/support">Support</a>
-    </nav>
+      <div style="margin-top:10px;">© <span id="year">2026</span> EVDiag · codes.</div>
+    </footer>
   </div>
-</footer>
-
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

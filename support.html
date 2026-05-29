@@ -1,173 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Support — codes.</title>
-  <meta name="description" content="Support and FAQ for codes. — the promo code and voucher manager.">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
-<header>
-  <div class="container">
-    <a href="/" class="brand">codes<span class="dot">.</span></a>
-    <div class="tagline">Promo code &amp; voucher manager</div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="/support" class="active">Support</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <div class="container">
+  <div class="wrap">
+    <header>
+      <a href="/" class="brand">codes<span class="dot">.</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support" class="active">Support</a>
+      </nav>
+    </header>
 
     <h1>Support</h1>
+    <p class="lead">codes. is built by a small team. We read every message and try to reply within a day or two.</p>
 
-    <p class="lead">
-      Need help with codes.? Email us at <a href="mailto:service@evdiag.net">service@evdiag.net</a>
-      and we'll respond within a few business days. The FAQ below answers common questions.
-    </p>
-
-    <h2>Frequently asked</h2>
-
-    <h3>How do I restore a Pro purchase on a new device?</h3>
-    <p>
-      Open the app → tap the gear icon (Settings) → tap "Unlock Pro" → tap "Restore purchase".
-      The app will check with the App Store or Google Play and unlock Pro if your account
-      has a previous purchase.
-    </p>
-    <p>
-      Make sure you are signed in to the device with the same Apple ID or Google account that
-      made the original purchase. Apple and Google do not currently support sharing entitlements
-      across platforms (an iOS purchase does not unlock Pro on Android, and vice versa).
-    </p>
-
-    <h3>How do I back up my data?</h3>
-    <p>
-      Open the app → Settings → "Export full backup". This creates a file containing all your
-      codes, categories, vouchers, and team configuration. Save it to cloud storage (iCloud
-      Drive, Google Drive, Dropbox), email it to yourself, or transfer to another device.
-    </p>
-    <p>
-      We recommend exporting a backup at least once a week if you are actively using the app.
-    </p>
-
-    <h3>How do I restore from a backup?</h3>
-    <p>
-      Open the app on the new device → Settings → "Import full backup" → select the backup
-      file. The app will restore your codes, categories, vouchers, and team configuration.
-    </p>
-
-    <h3>I lost access to my device — can you recover my codes?</h3>
-    <p>
-      Unfortunately, no. codes. stores your codes on your device, and even with online sync our
-      server only ever holds briefly-lived, end-to-end-encrypted messages that we cannot read —
-      so we have no copy of your codes to restore. Please keep a recent backup file in a safe
-      place (cloud storage is fine).
-    </p>
-
-    <h3>How does Team mode work?</h3>
-    <p>
-      Team mode (a Pro feature) lets up to two phones share a code catalog. One phone is the
-      Master (who owns the catalog and loads codes); the other is a Slave (who gives out codes
-      the Master assigns). There are two ways to share:
-    </p>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:support@evdiag.net">support@evdiag.net</a></p>
+    <p>When emailing, please include:</p>
     <ul>
-      <li><strong>Offline (Pro):</strong> Master and Slave exchange encrypted <code>.pcm</code> files through any channel (AirDrop, WhatsApp, email, file managers). You tap the received file to import it.</li>
-      <li><strong>Online sync (Pro Online):</strong> the same encrypted messages are relayed automatically through our cloud server, so transfers, confirmations, and status updates happen without anyone exchanging files by hand. It is opt-in and can be switched on or off in Settings; the team works the same either way because the encryption is identical.</li>
-    </ul>
-    <p>
-      Only the Master needs to purchase Pro. Slaves connect for free using a team invite QR
-      code shared by the Master.
-    </p>
-
-    <h3>Is online sync private? What can your server see?</h3>
-    <p>
-      Yes. With online sync, every message is end-to-end encrypted on your device before it is
-      sent, using a team key that never leaves your devices. Our server is a relay that cannot
-      read message contents — it only sees an anonymous sender/recipient identifier, the message
-      size, and the time. It never sees your codes, vouchers, customer names, or who you are.
-      See our <a href="/privacy">Privacy Policy</a> for the full detail.
-    </p>
-
-    <h3 id="delete-sync-data">How do I delete my online sync data?</h3>
-    <p>
-      If you have used online sync and want your server-side data removed:
-    </p>
-    <ul>
-      <li><strong>In the app:</strong> Settings → online sync → "Delete sync account". This permanently removes your inbox and your anonymous user record from our server.</li>
-      <li><strong>By email:</strong> write to <a href="mailto:service@evdiag.net">service@evdiag.net</a> and we will delete your sync data for you.</li>
-      <li><strong>Automatically:</strong> relayed messages are deleted once delivered or after they expire (a default of 7 days, never more than 30), and inactive sync accounts are removed after 90 days — so abandoned data does not linger.</li>
-    </ul>
-    <p>
-      This affects only the optional cloud-sync data. Your on-device codes and vouchers are
-      separate and are removed by uninstalling the app. If you never enabled online sync, there
-      is no server-side data to delete.
-    </p>
-
-    <h3>What is a partner / bulk distribution?</h3>
-    <p>
-      The bulk distribution feature (Pro) lets you assign a batch of codes to a "partner"
-      (typically another business that resells or gives out your codes). The codes are
-      delivered to the partner as a CSV or PDF file. The partner database tracks which
-      partner received which batch.
-    </p>
-
-    <h3>What devices does codes. support?</h3>
-    <ul>
-      <li><strong>iOS:</strong> iOS 14 or later, iPhone and iPad</li>
-      <li><strong>Android:</strong> Android 7 (API 24) or later, phones and tablets</li>
+      <li>Your device (e.g. "iPhone 14 Pro" or "Samsung Galaxy S22, Android 14")</li>
+      <li>The app version (visible in Settings → About)</li>
+      <li>A description of what you were doing and what went wrong</li>
     </ul>
 
-    <h3>Is there a desktop or web version?</h3>
-    <p>Not currently. codes. is designed for phones and tablets.</p>
+    <h2>Frequently asked questions</h2>
 
-    <h3>How do I request a refund?</h3>
-    <p>
-      Refunds are handled by Apple or Google according to their respective policies:
-    </p>
+    <h3>Does the app work without internet?</h3>
+    <p>Yes. The free tier and Pro Team tier are entirely offline. The only feature that needs internet is the optional cloud sync in Pro Online — and even that automatically falls back to file-share mode if there's no connection.</p>
+
+    <h3>How do I move my data to a new phone?</h3>
+    <p>Settings → Export creates a JSON backup of all your codes, categories, customers, and team configuration. Transfer the file to your new phone (email, AirDrop, USB), then Settings → Import.</p>
+    <p class="note">Backups are not encrypted by default. Store them somewhere safe and delete after import if they contain sensitive data.</p>
+
+    <h3>Can I un-pair from a team?</h3>
+    <p>Yes. Settings → Team → "Leave team" (Distributor) or "Disband team" (Owner). On Owner disband, all Distributors receive a disconnect message and their team-tagged data becomes read-only.</p>
+
+    <h3>What happens to in-flight cloud messages if I disable sync?</h3>
+    <p>Any messages already addressed to your phone will be delivered the next time you re-enable sync, until they expire (currently 7 days). Pending outbound messages on your side will fall back to file-share when you next try to send.</p>
+
+    <h3>Why am I seeing a "version mismatch" banner?</h3>
+    <p>A paired phone in your team is running a newer version of the app. Update yours from the App Store / Google Play to get full compatibility. The banner is dismissible if you'd prefer to wait.</p>
+
+    <h3>How do I clear practice ("demo") data?</h3>
+    <p>Settings → Load practice data → "Clear practice data" button (only visible after demo data has been loaded). Or for the team-mode preview: tap "Exit demo" on the banner at the top of the Codes view.</p>
+
+    <h3>I bought Pro on my old phone — how do I restore it?</h3>
+    <p>Settings → Pro features → "Restore purchase". You'll need to be signed in to the same Apple ID or Google account that made the original purchase.</p>
+
+    <h3>Can I refund a Pro purchase?</h3>
+    <p>Refunds are handled by the platform (Apple App Store or Google Play) under their own policies — we can't refund directly. See:</p>
     <ul>
-      <li><strong>App Store (iOS):</strong> <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a></li>
-      <li><strong>Google Play (Android):</strong> <a href="https://play.google.com/store/account/orderhistory">play.google.com/store/account/orderhistory</a></li>
+      <li>Apple: <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a></li>
+      <li>Google: <a href="https://support.google.com/googleplay/answer/2479637">Refund process</a></li>
     </ul>
-    <p>
-      We are not able to issue refunds directly. If you have an issue with the app, please
-      contact us first — we may be able to help.
-    </p>
 
-    <h2>Report a bug or request a feature</h2>
-    <p>
-      Email <a href="mailto:service@evdiag.net">service@evdiag.net</a> with:
-    </p>
-    <ul>
-      <li>What you were doing when the issue occurred</li>
-      <li>What you expected to happen</li>
-      <li>What actually happened</li>
-      <li>Your device and OS version (e.g. "iPhone 14, iOS 18.2")</li>
-    </ul>
-    <p>
-      For feature requests, just describe what you're trying to accomplish — we appreciate the
-      input.
-    </p>
+    <h3>Is my data backed up automatically?</h3>
+    <p>No. The app does not auto-back-up to any cloud. We recommend running Settings → Export periodically and storing the backup somewhere safe (email-to-self, Drive, iCloud, etc.).</p>
+    <p class="warn">⚠ If your phone is lost or its storage is wiped, all data is gone. Cloud sync (Online tier) is not a backup — it routes messages, not snapshots.</p>
 
-  </div>
-</main>
+    <h3>How do I report a bug or request a feature?</h3>
+    <p>Email <a href="mailto:support@evdiag.net">support@evdiag.net</a> with as much detail as you can. Screenshots help a lot.</p>
 
-<footer>
-  <div class="container">
-    <div>&copy; 2026 EVDiag · codes.</div>
-    <nav>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
+    <h2>Known issues</h2>
+    <p>See the <a href="/">home page</a> for what's recently changed.</p>
+
+    <h2>Privacy &amp; legal</h2>
+    <p>See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.</p>
+
+    <footer>
+      <a href="/privacy">Privacy</a>·
+      <a href="/terms">Terms</a>·
       <a href="/support">Support</a>
-    </nav>
+      <div style="margin-top:10px;">© <span id="year">2026</span> EVDiag · codes.</div>
+    </footer>
   </div>
-</footer>
-
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

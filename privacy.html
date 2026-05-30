@@ -48,7 +48,7 @@
     <h3>2b. Cloud sync (Pro Online tier — opt-in)</h3>
     <p>If you purchase Pro Online and enable cloud sync, paired phones exchange encrypted packages via a relay server (currently hosted on Cloudflare Workers).</p>
     <ul>
-      <li><strong>What the relay sees:</strong> a teamId (random identifier), the destination userId (random identifier), and encrypted bytes.</li>
+      <li><strong>What the relay sees:</strong> the sender's and recipient's random identifiers (userIds), the size of each message, the time it was received, and an opaque block of encrypted bytes.</li>
       <li><strong>What the relay does NOT see:</strong> the codes themselves, voucher contents, customer names, your real identity, or anything else inside the package — encryption happens on-device before transmission using AES-GCM with a key that never leaves your phone.</li>
       <li><strong>How long messages are kept:</strong> messages are deleted from the relay shortly after the recipient retrieves them. Undelivered messages expire automatically.</li>
       <li><strong>How to opt out:</strong> cloud sync is disabled by default. You can disable it anytime in Settings; the app falls back to file-share mode.</li>

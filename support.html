@@ -21,14 +21,48 @@
     <h1>Support</h1>
     <p class="lead">codes. is built by a small team. We read every message and try to reply within a day or two.</p>
 
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:support@evdiag.net">support@evdiag.net</a></p>
-    <p>When emailing, please include:</p>
-    <ul>
-      <li>Your device (e.g. "iPhone 14 Pro" or "Samsung Galaxy S22, Android 14")</li>
-      <li>The app version (visible in Settings → About)</li>
-      <li>A description of what you were doing and what went wrong</li>
-    </ul>
+    <h2 id="contact">Send us a message</h2>
+    <p>Question, bug, pairing trouble, an idea for a feature — all welcome. If something went wrong, tell us what you were doing, what you expected and what happened instead. The app version is in Settings → About.</p>
+
+    <form class="contact" id="contactForm" novalidate>
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" autocomplete="name" required maxlength="120">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required maxlength="200">
+        <span class="hint">So we can reply. Used for nothing else.</span>
+      </div>
+      <div class="field">
+        <label for="topic">What is it about</label>
+        <select id="topic" name="topic">
+          <option>A question</option>
+          <option>Something is wrong / a bug</option>
+          <option>Pairing or team sync</option>
+          <option>Purchases and restoring Pro</option>
+          <option>Delete my data</option>
+          <option>Feature request</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="device">Phone and app version <span class="opt">(optional)</span></label>
+        <input type="text" id="device" name="device" maxlength="200" placeholder="e.g. Pixel 8, Android 15, build 0711-2473">
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required maxlength="5000"></textarea>
+      </div>
+      <div class="hp" aria-hidden="true">
+        <label for="hp_check">Leave this field empty</label>
+        <input type="text" id="hp_check" name="hp_check" tabindex="-1" autocomplete="off" data-1p-ignore data-lpignore="true" data-bwignore data-form-type="other">
+      </div>
+      <button class="btn" type="submit" id="submitBtn">Send message</button>
+      <div class="formmsg" id="formMsg" role="status" aria-live="polite"></div>
+      <noscript><p class="formmsg show bad">The form needs JavaScript. You can also email <a href="mailto:support@evdiag.net">support@evdiag.net</a>.</p></noscript>
+    </form>
+    <p class="meta">Prefer email? Write to <a href="mailto:support@evdiag.net">support@evdiag.net</a>. We usually reply within a working day.</p>
 
     <h2>Frequently asked questions</h2>
 
@@ -49,7 +83,7 @@
     <p>If you have used online sync and want your data removed from our server:</p>
     <ul>
       <li><strong>In the app:</strong> Settings → Danger zone → "Delete my account". This erases your member record, any messages queued for you and your encrypted cloud backup from the server, then deletes everything on the phone. If you are the team Owner, the whole team is removed from the server (every member record, queued message, backup and redeem log).</li>
-      <li><strong>By email:</strong> if you no longer have the app or the phone, write to <a href="mailto:support@evdiag.net">support@evdiag.net</a> and we will delete your sync data for you.</li>
+      <li><strong>By email:</strong> if you no longer have the app or the phone, use the <a href="/support?topic=delete#contact">form above</a> (topic "Delete my data") or write to <a href="mailto:support@evdiag.net">support@evdiag.net</a>, and we will delete your sync data for you.</li>
       <li><strong>Automatically:</strong> relayed messages are deleted once they are delivered, or when they expire (7 days by default, never more than 30).</li>
     </ul>
     <p>Everything on the server is end-to-end encrypted, so we cannot read it either way. Deleting sync data does not touch codes your teammates already received on their own phones. If you never enabled online sync, there is no server-side data to delete — uninstalling the app removes everything.</p>
@@ -91,5 +125,6 @@
     </footer>
   </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="/contact.js?v=1" defer></script>
 </body>
 </html>

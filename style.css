@@ -212,3 +212,54 @@ footer a { color: var(--muted); margin: 0 8px; }
   font-size: 14px;
   color: var(--ink-soft);
 }
+
+/* Support form */
+form.contact {
+  background: var(--paper-2);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 18px 0 12px;
+}
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.field .opt { font-weight: 400; color: var(--muted); }
+.field input, .field select, .field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 16px;               /* 16px stops iOS zooming into the field */
+  color: var(--ink);
+  background: #FFFDF8;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.field textarea { min-height: 150px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+.field .hint { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.btn {
+  background: var(--accent);
+  color: #FFF;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:disabled { opacity: .6; cursor: default; }
+.formmsg { display: none; margin-top: 14px; font-size: 14px; padding: 12px 14px; border-radius: 8px; }
+.formmsg.show { display: block; }
+.formmsg.ok  { background: #E7F1E4; color: #2F5E2A; border-left: 3px solid #2F5E2A; }
+.formmsg.bad { background: var(--amber-bg); color: var(--amber); border-left: 3px solid var(--amber); }

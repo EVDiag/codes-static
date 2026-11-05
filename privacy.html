@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy — codes.</title>
-  <meta name="description" content="Privacy policy for the codes. app. No accounts. No tracking. End-to-end encrypted optional cloud sync.">
+  <meta name="description" content="Privacy policy for the codes. app. No sign-up, no ads, no tracking. Team sync is end-to-end encrypted.">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -20,94 +20,101 @@
     </header>
 
     <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: May 2026</p>
+    <p class="meta">Last updated: November 2026</p>
 
-    <p class="lead">codes. is an offline-first app. We don't collect, store, or share personal information on our servers. This page describes what data the app handles, where it lives, and the limited cases where data leaves your device.</p>
+    <p class="lead">codes. is a promo code and voucher manager for businesses. This page explains what data the app handles, where it is kept, what our server can and cannot see, and how to delete it.</p>
 
     <div class="note">
-      <strong>Short version:</strong> The app works entirely on your phone. There are no user accounts. We never see your codes, vouchers, customer names, or business data. Optional cloud sync between paired phones uses end-to-end encryption — the relay server can't read what passes through it.
+      <strong>Short version:</strong> There is no sign-up — no name, email or password. Your codes, vouchers and customer details live on your phone. When you work as a team, phones exchange data through our relay server, but everything is end-to-end encrypted on the phone first, so the server only handles scrambled bytes and random identifiers. No ads, no analytics, no tracking. You can erase your server-side data from inside the app at any time.
     </div>
 
-    <h2>1. What data the app stores</h2>
-    <p>All data is stored locally on your device in the app's private storage:</p>
+    <h2>1. Who is responsible</h2>
+    <p>The app is published by EVDiag, the data controller for the limited data described here. Contact: <a href="mailto:support@evdiag.net">support@evdiag.net</a>.</p>
+
+    <h2>2. Data stored on your phone</h2>
+    <p>The app keeps the following in its private storage on your device:</p>
     <ul>
-      <li>Promo codes and vouchers you've added (text strings; you control the source)</li>
-      <li>Categories you've created (names, descriptions, types)</li>
-      <li>Customer or recipient information you've manually entered (names, optional contact details)</li>
-      <li>Partner business records (Pro feature)</li>
-      <li>Team configuration if you've paired with another phone (team name, member names, shared encryption key)</li>
-      <li>App settings (language, preferred sharing app, etc.)</li>
+      <li>Promo codes and vouchers you add, generate or import, and their status (available, given out, redeemed).</li>
+      <li>Categories, voucher designs and any photos you choose as voucher backgrounds.</li>
+      <li>Customer and partner details you type in yourself (for example a name or phone number) and the history of what was given to whom.</li>
+      <li>Team details if you are in a team: the team name, member names, roles and permissions, the shared team encryption key and this phone's own key pair. Keys are kept in the phone's secure storage (Android Keystore / iOS Keychain).</li>
+      <li>App settings such as language, skin, printer paper width and reminders.</li>
     </ul>
-    <p>None of this is transmitted to us. We have no servers that store your business data.</p>
+    <p>Android system backup of the app is switched off, so this data is not copied to Google's cloud backup. If you export a backup file (Settings → Data &amp; backup), you choose where it goes; it is your copy and we never receive it.</p>
 
-    <h2>2. What data leaves your device</h2>
+    <h2>3. Data that leaves your phone</h2>
 
-    <h3>2a. Team transfers (file-share mode)</h3>
-    <p>When you send codes to a teammate using the file-share workflow (WhatsApp, AirDrop, email, etc.), the app generates an encrypted .pcm file containing the codes and metadata. You choose which app delivers the file. The contents are encrypted with a shared key that only the paired phones know — even if intercepted, the file can't be read without the key.</p>
-
-    <h3>2b. Cloud sync (Pro Online tier — opt-in)</h3>
-    <p>If you purchase Pro Online and enable cloud sync, paired phones exchange encrypted packages via a relay server (currently hosted on Cloudflare Workers).</p>
+    <h3>3a. Team sync through our relay</h3>
+    <p>Phones in the same team (one Owner and the Distributors they pair) exchange code transfers, status reports, redemptions and permission changes through our relay server, which runs on Cloudflare Workers. Pairing itself happens by scanning a QR code; the team key travels in that QR code from phone to phone and never through the server.</p>
+    <p>Everything a phone sends is encrypted on the device with AES-256-GCM using the team key before it leaves. The relay stores and handles only the following:</p>
     <ul>
-      <li><strong>What the relay sees:</strong> the sender's and recipient's random identifiers (userIds), the size of each message, the time it was received, and an opaque block of encrypted bytes.</li>
-      <li><strong>What the relay does NOT see:</strong> the codes themselves, voucher contents, customer names, your real identity, or anything else inside the package — encryption happens on-device before transmission using AES-GCM with a key that never leaves your phone.</li>
-      <li><strong>How long messages are kept:</strong> messages are deleted from the relay shortly after the recipient retrieves them. Undelivered messages expire automatically.</li>
-      <li><strong>How to opt out:</strong> cloud sync is disabled by default. You can disable it anytime in Settings; the app falls back to file-share mode.</li>
+      <li><strong>Member record:</strong> a random user identifier, your role (Owner or Distributor), the public half of the phone's key pair, hashes of its session token and Recovery Code, and when it joined and was last seen. No name, email or phone number.</li>
+      <li><strong>Queued messages:</strong> encrypted packages waiting for a phone that is offline, with sender and recipient identifiers, size and time. They are deleted as soon as the recipient confirms receipt, or when they expire (7 days by default, never more than 30).</li>
+      <li><strong>Encrypted recovery backup:</strong> while you are in a team, the app keeps an encrypted copy of its team data on the relay so you can restore it with your Recovery Code after a reinstall or on a new phone. It is encrypted with keys derived on your phone; the server cannot open it.</li>
+      <li><strong>Redemption log:</strong> to stop the same voucher being redeemed twice by different phones, the relay records an opaque fingerprint of each redeemed voucher (a keyed hash, not the code itself), which member redeemed it and when.</li>
+      <li><strong>Team event log:</strong> a short internal record of team events such as joins, removals and permission changes, using the same random identifiers. It is deleted together with the team.</li>
+      <li><strong>Connection data:</strong> like any internet service, the server sees your phone's IP address when it connects. We use it only for short-lived rate limiting against abuse and do not store it with your member record. Cloudflare keeps a sampled technical log of requests for a short period for operations and security.</li>
     </ul>
+    <p>The relay never sees your codes, vouchers, customer or partner details, member names, or anything else inside the encrypted packages.</p>
 
-    <h3>2c. In-app purchases (Pro upgrades)</h3>
-    <p>Purchases are processed by Apple App Store or Google Play. We use <a href="https://www.revenuecat.com/">RevenueCat</a> to validate receipts and track entitlements across devices. RevenueCat receives an anonymous device identifier and the purchase receipt — no personal info from you.</p>
-    <p>See <a href="https://www.revenuecat.com/privacy/">RevenueCat's privacy policy</a> for their handling.</p>
+    <h3>3b. Purchases</h3>
+    <p>Paid upgrades are bought through the Apple App Store or Google Play. We use <a href="https://www.revenuecat.com/">RevenueCat</a> to check purchases. RevenueCat receives an anonymous app user identifier and the purchase receipt; Apple or Google handle payment and never share your card details with us. When an Owner's team is created, the app sends that anonymous RevenueCat identifier to our relay so it can confirm which team size the purchase allows. See <a href="https://www.revenuecat.com/privacy/">RevenueCat's privacy policy</a>.</p>
 
-    <h3>2d. Crash reports (if enabled)</h3>
-    <p>Crash reporting is <strong>off by default</strong>. You can turn it on in Settings → "Send crash reports". When enabled, the app sends an anonymized report to our own relay server (not a third party) only when an error occurs.</p>
-    <p>Each report contains: the error message and technical stack trace, the app version, your platform (iOS/Android), which screen was open, a random anonymous identifier (not linked to your identity), and a timestamp. Before sending, the app redacts code-like strings (e.g. promo codes, voucher IDs) and email addresses from the error text.</p>
-    <p>Crash reports <strong>never</strong> contain your codes, vouchers, customer or partner names, or any identifying personal information. Reports are rate-limited (at most a handful per session). You can disable crash reporting anytime in Settings; no further reports are sent once it's off.</p>
+    <h3>3c. Crash reports (off by default)</h3>
+    <p>Crash reporting is off until you turn it on in Settings. When it is on and something goes wrong, the app sends a short report to our relay: the error message and technical stack trace, app version, platform, which screen was open, a random install identifier and the time. Before sending, the app strips code-like strings and email addresses from the text. The relay does not store reports; it forwards them to a private developer notification channel (a Discord or Slack webhook) so we can fix the problem. Turn the setting off and no further reports are sent.</p>
 
-    <h2>3. What we never collect</h2>
+    <h3>3d. Things you share yourself</h3>
+    <p>If you send a voucher to a customer through WhatsApp, email or the share sheet, or export a file, the content goes to the app or person you choose. That transfer is between you and that service; we are not part of it.</p>
+
+    <h2>4. What we never collect</h2>
     <ul>
-      <li>Your name, email, phone number (you never give them to us)</li>
-      <li>Your location (the app doesn't request location permissions)</li>
-      <li>Your contacts (the app doesn't request contacts permissions)</li>
-      <li>Advertising identifiers</li>
-      <li>Usage analytics or telemetry</li>
-      <li>The actual content of your codes, vouchers, customers, or partner records</li>
+      <li>Your name, email address or phone number — there is no account to sign up for.</li>
+      <li>Your location. Android requires the location permission to search for Bluetooth printers (see below), but the app never reads or stores your location.</li>
+      <li>Your contacts.</li>
+      <li>Advertising identifiers, usage analytics or tracking of any kind. The app contains no ads.</li>
+      <li>The content of your codes, vouchers, customers or partners.</li>
     </ul>
+    <p>We do not sell or rent data, and we do not share it with anyone for advertising.</p>
 
-    <h2>4. Permissions the app requests</h2>
+    <h2>5. Permissions the app asks for</h2>
     <ul>
-      <li><strong>Camera</strong> — only when you scan a team-invite QR code or scan a voucher for redemption. Camera access is requested per-use and not retained.</li>
-      <li><strong>Storage / file access</strong> — to read CSV imports you select and to save backup files you create. The app reads only files you explicitly choose.</li>
-      <li><strong>Notifications</strong> — to remind you when an inbound team transfer arrives or when a daily status report is due. Notifications are local-only (generated by the app on your device, not pushed from a server).</li>
-      <li><strong>Internet</strong> — required only if you enable cloud sync (Pro Online) or restore in-app purchases. Otherwise the app makes no network requests.</li>
+      <li><strong>Camera</strong> — to scan team-invite and voucher QR codes, and to take a photo for a voucher background. Used only while you are scanning or taking the photo.</li>
+      <li><strong>Photos</strong> (iOS) — only when you choose an existing picture as a voucher background.</li>
+      <li><strong>Bluetooth</strong> — to find and connect to an optional thermal receipt printer.</li>
+      <li><strong>Location</strong> (Android) — Android treats searching for nearby Bluetooth devices as location-sensitive and requires this permission for printer discovery. The app uses it only to list printers and never accesses your position.</li>
+      <li><strong>Notifications</strong> — local reminders (for example daily status reports) and alerts about team activity. They are created on your phone.</li>
+      <li><strong>Internet</strong> — for team sync, the Recovery Code backup, purchases and, if enabled, crash reports.</li>
     </ul>
-
-    <h2>5. Children</h2>
-    <p>This app is intended for use by businesses and adults distributing promotional content. It is not directed at children under 13 and we do not knowingly collect data from children.</p>
 
     <h2>6. Data retention &amp; deletion</h2>
-    <p>Your business data lives on your device. To remove it:</p>
-    <ul>
-      <li>Open Settings → Danger zone → Clear all data, OR</li>
-      <li>Uninstall the app (removes all stored data with it)</li>
-    </ul>
-    <p>If you've used cloud sync, the relay holds only encrypted data: your random member record, messages waiting for delivery (deleted on delivery, or after 7 days by default and at most 30) and an encrypted recovery backup used to restore your phone into the team. Settings → Danger zone → "Delete my account" erases all of it from the server. You can also ask us by email. See <a href="/support#delete-sync-data">How do I delete my online sync data?</a></p>
+    <p>Your business data lives on your device. To remove it, use Settings → Danger zone → Clear all data, or uninstall the app.</p>
+    <p>To remove your data from our server, use Settings → Danger zone → "Delete my account". This erases your member record, any messages queued for you and your encrypted recovery backup, then clears the phone. If you are the team Owner, the whole team is removed from the server: every member record, queued message, backup and redemption log. You can also ask us by email at <a href="mailto:support@evdiag.net">support@evdiag.net</a> — useful if you no longer have the phone. See also <a href="/support#delete-sync-data">How do I delete my online sync data?</a></p>
+    <p>When an Owner removes a Distributor from the team, that Distributor's member record, queued messages and recovery backup are removed from the server as well. Queued messages are deleted on delivery or expire after at most 30 days.</p>
 
     <h2>7. Security</h2>
-    <p>Team-mode communication (both file-share and cloud sync) uses AES-GCM with 256-bit keys. The shared team key is generated on the Owner's phone and transferred to Distributors via QR code during pairing — it never travels through any server.</p>
-    <p>Random initialization vectors are generated per-message. Replay protection is enforced via package-ID deduplication.</p>
+    <p>Team data is encrypted end to end with AES-256-GCM and a fresh random value for every message. The team key is created on the Owner's phone and passed to Distributors by QR code only. Each phone signs in to the relay with its own key pair and session tokens; the server stores only hashes of tokens and Recovery Codes. All connections use HTTPS / secure WebSockets.</p>
+    <p>Your Recovery Code can restore your place in the team and your team data — treat it like a password and keep it private.</p>
 
-    <h2>8. Third parties</h2>
+    <h2>8. Your rights</h2>
+    <p>Depending on where you live (for example under the EU/UK GDPR), you can ask to access, correct, export or delete personal data we hold, object to processing, or complain to your data protection authority. Because the server holds only random identifiers and encrypted data, the in-app "Delete my account" covers almost every request. For anything else, email <a href="mailto:support@evdiag.net">support@evdiag.net</a>. We process the limited server data to provide the service you asked for (team sync, recovery and purchase checks) and, for crash reports, on the basis of your consent, which you can withdraw in Settings.</p>
+
+    <h2>9. Service providers</h2>
     <ul>
-      <li><strong>Apple App Store / Google Play</strong> — handle app distribution and in-app purchases. Subject to their own privacy policies.</li>
-      <li><strong>RevenueCat</strong> — validates IAP receipts. Receives anonymous device IDs and purchase metadata.</li>
-      <li><strong>Cloudflare Workers</strong> — hosts our own relay for the optional cloud sync (encrypted bytes + routing identifiers) and, if you opt in, anonymized crash reports. This is our infrastructure, not a third-party analytics processor.</li>
+      <li><strong>Cloudflare</strong> — hosts our relay server (encrypted packages, routing identifiers, recovery backups).</li>
+      <li><strong>Apple App Store / Google Play</strong> — app distribution and payments, under their own privacy policies.</li>
+      <li><strong>RevenueCat</strong> — purchase validation (anonymous app user identifier and receipts).</li>
+      <li><strong>Discord or Slack</strong> — receives crash reports only if you turn crash reporting on.</li>
     </ul>
+    <p>Some of these providers process data outside your country, including in the United States, under their standard data protection terms.</p>
 
-    <h2>9. Changes to this policy</h2>
-    <p>If we change how the app handles data, we will update this policy and post the new "Last updated" date. Material changes will be announced in-app.</p>
+    <h2>10. Children</h2>
+    <p>The app is meant for businesses and adults distributing promotional content. It is not directed at children under 16, and we do not knowingly collect data from children.</p>
 
-    <h2>10. Contact</h2>
-    <p>Questions about this privacy policy: <a href="mailto:support@evdiag.net">support@evdiag.net</a></p>
+    <h2>11. Changes to this policy</h2>
+    <p>If we change how the app handles data, we will update this page and its "Last updated" date. Significant changes will also be announced in the app.</p>
+
+    <h2>12. Contact</h2>
+    <p>Questions about privacy: <a href="mailto:support@evdiag.net">support@evdiag.net</a></p>
 
     <footer>
       <a href="/privacy">Privacy</a>·
